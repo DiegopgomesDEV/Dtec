@@ -3,7 +3,7 @@ let num2 = 9.54
 let num3 = 3.60
 let num4 = 3.40 
 
-//Arrendodamento para baixo
+//Arrendodamento para baixo 
 
 let resultado = Math.floor(num)
 console.log(resultado)
