@@ -44,17 +44,13 @@ nav {
     /* Define o espaçamento entre linhas e colunas */
 }
 
-.menu,
-li,
-a {
+.menu,li,a {
     color: #bbb;
     text-decoration: none;
     font-size: 0.95rem;
 }
 
-.menu,
-li,
-a:hover {
+.menu,li,a:hover {
     color: #fff
 }
 
@@ -78,7 +74,7 @@ a:hover {
 
 .hero-content,
 h1 {
-    font-size: 2.0rem;
+    font-size: 2.8rem;
     font-weight: 600;
     margin-bottom: 1.2rem;
     line-height: 1.2;
@@ -132,17 +128,21 @@ p {
     margin-top: 2rem;
 }
 
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px 1fr));
+    gap: 2rem;
+}
+
 .card{
     background: #111;
     padding: 2rem;
     border-radius: 1rem;
-    border: 1px solid #1f1f1f;}
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    transition: 0.3s ease;
+    border: 1px solid #1f1f1f;
+    box-shadow: 0 0 0 transparent;
 }
+
 
 .cards:hover {
     background: #1a1a1a;
@@ -159,7 +159,7 @@ p {
     opacity: 0.8;
 }
 
-h3 {
+.card h3 {
     font-size: 1.1rem;
     color: #eee;
     font-weight: 500;
@@ -193,6 +193,25 @@ h3 {
     align-items: center;
 }
 
-.clients-logos img{
-    
+
+.clients-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    align-items: center;
+}
+
+
+.clients-logos img {
+    height: 32px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    filter: grayscale(100%);
+}
+
+
+.clients-logos img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
 }
