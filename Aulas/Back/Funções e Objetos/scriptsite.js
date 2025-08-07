@@ -25,4 +25,7 @@ form.addEventListener("submit", function(evento){
     console.log(pessoas);
 
     result.innerHTML += `<p> ${nome} ${sobrenome} - ${peso}KG ${altura}M<\p>`
+
+    //limpa o formulario
+    form.reset()
 })
