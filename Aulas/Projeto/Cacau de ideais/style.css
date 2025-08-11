@@ -90,7 +90,8 @@ h3{
 
 .produto-card{
     border-radius: 5px;
-    border: 1px solid #3e2c1c;
+    border: 1px solid #3e2c1c94;
+    margin-bottom: 20px;
 }
 
 .produto-card:hover{
