@@ -25,37 +25,45 @@ body{
     justify-content: center;
     text-align: center;
     border-radius: 10px;
-    
 }
 
     .start{
     display: flex;
     flex-direction: column;
+    gap: 5px;
     align-items: start;
 }
 
     p{
     font-size: 15px;
     margin-top: 5px;
-    align-items: start;
-    margin-left: 20px;
+    align-content: center;
+    margin-left: 50px;
+    font-size: medium;
     }
 
 h1{
     display: flex;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
+}
 
+.ajuste{
+    display: flex;
+    justify-content: center;
 }
 
 button{
-    font-size:arial;
     background-color: #1589fc;
     color: white;
     margin-top:20px ;
-    height: 30px;
-    border-radius: 20px;
+
+    height: 40px;
+    width: 90%;
+    border-radius: 5px;
+
     border: none;
+    margin-top: 30px;
 }
 
 button:hover{
