@@ -40,6 +40,7 @@ h2{
     border-radius:5px;
 }
 
+
 a{
     color: #fef9f6;
     font-weight: bolder;
@@ -64,15 +65,17 @@ a{
     padding-bottom:20px ;
     
 }
+.botao-card:hover{
+    background-color: #5e3829f3;
+    color: #ffffff;
+    scale: 110%;
+}
 
 h3{
     color: #3e2c1c;
 }
 
-.botao-card:hover{
-    background-color: #5e3829ec;
-    color: #ffffff
-}
+
 
 .produtos-grid {
     display: flex;
@@ -98,7 +101,7 @@ h3{
 
 .produto-card:hover{
     background-color: #814c3434;
-
+    scale: 105%;
 }
 
 footer{

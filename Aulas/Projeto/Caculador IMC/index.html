@@ -7,6 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Calcule seu IMC</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -43,14 +46,17 @@
         <span class="col">Obesidade grau 3</span>
       </div>
     </div>
-    <form class="formulario">
-        <h2>Calcule seu IMC</h2>
-        <span>Peso</span>
-        <input type="text" id="peso">
-        <span>Altura</span>
-        <input type="text" id="altura">
-        <button onclick="botaocalcular">Calcular</button>
+    <form class="formulario" id="formulario">
+      <h3>Calcule seu IMC </h3>
+        <Span class="IMC">Peso</Span>
+        <input id="peso"></input>
+        <Span class="IMC">Altura</Span>
+        <input id="altura"></input>
+        <button >Calcular</button>
+        <div class="resultado " id="resultado"></div>
     </form>
+
+    
   </section>
 
   <script src="script.js"></script>
