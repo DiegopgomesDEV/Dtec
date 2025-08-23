@@ -1,4 +1,9 @@
 const input_inf = document.getElementById("inputusuario")
-input_inf.value
-const criar = document.createElement("li")
-dispatchEvent.appendChild(criar)
+const mostralista = document.getElementById("lista")
+const botaoadd = document.getElementsByClassName("adicionar")
+const criarli = document.createElement("li")
+
+function addlista(){
+    
+    mostralista.innerHTML += `<li>ola</li> `
+}
