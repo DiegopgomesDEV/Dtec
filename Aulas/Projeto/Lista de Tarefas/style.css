@@ -18,11 +18,17 @@ body{
     background-color: rgb(255, 255, 255);
     margin-top: 20px;
     flex-direction: column;
+    border-radius: 5px;
 }
 
 h2{
     margin-top: 40px;
     margin-bottom: 15px;
+}
+
+input{
+    width: 180px;
+    height: 20px;
 }
 
 .adicionar{
@@ -31,12 +37,12 @@ h2{
     color: white;
     border-radius: 2px;
     width: 80px;
-    height: 20px;
+    height: 25px;
     font-weight: bolder;
 }
 
 li{
-    margin-top: 20px;
+    margin-bottom: 20px;
     background-color: rgba(65, 60, 60, 0.226);
     list-style: none;
     width: 300x;
@@ -59,3 +65,6 @@ li{
     font-weight: bolder;
 }
 
+.ajust{
+    margin-bottom: 30px;
+}
