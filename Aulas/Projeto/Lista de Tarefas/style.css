@@ -1,70 +1,60 @@
-*{
-    padding: 0px;
-    margin: 0px;
+body {
+  background: #f0f0f0;
+  font-family: Arial, sans-serif;
 }
 
-body{
-    display: flex;
-    justify-content: center;
-    background-color: rgba(162, 161, 159, 0.639);
-    
+.container {
+  background: #fff;
+  margin: 60px auto;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 1px 2px 8px #bbb;
+  width: 320px;
+  text-align: center;
 }
 
-.container{
-    display: flex;
-    align-items: center;
-    height: auto;
-    width: 400px;
-    background-color: rgb(255, 255, 255);
-    margin-top: 20px;
-    flex-direction: column;
-    border-radius: 5px;
+input {
+  padding: 6px;
+  width: 180px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 }
 
-h2{
-    margin-top: 40px;
-    margin-bottom: 15px;
+button {
+  padding: 7px 14px;
+  border-radius: 4px;
+  border: none;
+  background: #3a7afe;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-input{
-    width: 180px;
-    height: 20px;
+ul {
+  list-style: none;
+  padding: 0;
 }
 
-.adicionar{
-    background-color: rgb(38, 101, 237);
-    border: none;
-    color: white;
-    border-radius: 2px;
-    width: 80px;
-    height: 25px;
-    font-weight: bolder;
+li {
+  padding: 8px;
+  margin: 5px 0;
+  background: #eee;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-li{
-    margin-bottom: 20px;
-    background-color: rgba(65, 60, 60, 0.226);
-    list-style: none;
-    width: 300x;
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    height: 30px;
-    width: 300px;
+.feito .tarefa{
+  text-decoration: line-through;
+  color: #888;  
 }
 
-.remove{
-    background-color: red;
-    border: none;
-    border-radius: 2px;
-    color: white;
-    width: 70px;
-    height: 70%;
-    font-weight: bolder;
-}
-
-.ajust{
-    margin-bottom: 30px;
+.remove {
+  background: #ff5959;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 3px;
+  cursor: pointer;
 }

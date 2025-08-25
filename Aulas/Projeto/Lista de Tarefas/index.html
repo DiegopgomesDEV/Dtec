@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Lista De Tarefas</title>
+  <meta charset="UTF-8">
+  <title>Minha Lista de Tarefas</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section class="container">
-        <h2>Lista de Tarefas</h2>
-        <div class="ajust">
-            <input type="text" id="inputusuario">
-            <button class="adicionar" onclick="addlista()">Adicionar</button>
-        </div>
-        <ul class="lista" id="lista">
-            <li class="tarefas" id="tarefa" > Tarefa 1 <button class="remove" id="botaoremo">remove</button></li>
-        </ul>
-    </section>
-    <script src="script.js"></script>
+  <div class="container">
+    <h2>Lista de Tarefas</h2>
+    <input id="novaTarefa" type="text" placeholder="Digite uma tarefa...">
+    <button onclick="adicionarTarefa()">Adicionar</button>
+    <ul id="lista"></ul>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
