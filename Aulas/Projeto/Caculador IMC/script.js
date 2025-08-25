@@ -45,11 +45,3 @@ form.addEventListener('submit', function (e) {
         return
         }
 })
-
-
-//----COMPLETAR JS----
-
-//----COMPLETAR JS----
-
-//----COMPLETAR JS----
-
