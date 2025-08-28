@@ -1,7 +1,13 @@
 /* css/main.css */
 @import "./reset.css";
 @import "./layout/grid.css";
+@import "./footer/footer.css";
+@import "./componets/button.css";
+@import "./componets/card-listin.css";
+@import "./componets/nav.css";
 
 
 /* estilos específicos da página */
-.hero { ... }
+.hero {
+    
+}
