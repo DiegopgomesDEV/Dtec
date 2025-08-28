@@ -1,0 +1,7 @@
+/* css/main.css */
+@import "./reset.css";
+@import "./layout/grid.css";
+
+
+/* estilos específicos da página */
+.hero { ... }

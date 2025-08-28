@@ -17,5 +17,3 @@ console.log(curso, modulo, aulas)
 //4
 console.log(10,20)
 console.log("44","00")
-
-//5
