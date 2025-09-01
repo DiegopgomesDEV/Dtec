@@ -1,8 +1,11 @@
 .hidden { display: none !important; }
 
 .wrap{
-    height: px;
-}
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-self:center;
+} 
 
 body{
     background-color: #031525;
@@ -12,34 +15,37 @@ body{
 
 .grid {
     display: grid;
-    gap: 12px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 220px));
+    grid-template-rows: auto , minmax(auto-fit, minmax(200px, 1fr));
 }
 
 .pill[aria-pressed="true"] {
+    height: 35px;
     background: var(--acc);
     color: #031525;
     background-color: 1rgb(85, 122, 244);
-    border-radius: 10px;
+    border-radius: 15px;
     border-color: transparent;
-    background-color: rgb(48, 173, 235);
-    margin-left: 5px;
+    background-color: rgb(66, 170, 222);
 }
 
 .filters{
     margin-bottom: 10px;
+    display:  flex;
+    gap: 10px;
 }
 
 .pill[aria-pressed="false"] {
+    height: 35px;
     background: var(--acc);
     color: #bcbcbcc3;
-    border-radius: 10px;
+    border-radius: 15px;
     border: 1px solid #bcbcbcc3;
-    margin-left: 5px;
 }
 .card{
-    width: 290px;
-    height: 290px;
+    width: 200px;
+    height: 200px;
 }
 
 .card img {
@@ -56,13 +62,21 @@ article{
 }
 
 h1{
-    font-size:x-large ;
+    font-size: 20px;
+    margin-bottom: 0px; 
 }
 
 p{
+    margin-top: 5px;
     color: #bcbcbcc3;
 }
 
 span{
     color: #bcbcbcc3;
+}
+
+.meta{
+    margin-top:5px ;
+    margin-left: 10px;
+    font-size: 15px;
 }
