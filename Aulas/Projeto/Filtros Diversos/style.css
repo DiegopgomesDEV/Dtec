@@ -15,7 +15,7 @@ body{
 
 .grid {
     display: grid;
-    gap: 10px;
+    gap: 12px;
     grid-template-columns: repeat(auto-fit, minmax(220px, 220px));
     grid-template-rows: auto , minmax(auto-fit, minmax(200px, 1fr));
 }
