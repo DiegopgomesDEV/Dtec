@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtros Diversos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrap">
+        <h1> Galeria com Filtros — Lite</h1>
+        <p class="muted">Clique em uma categoria para filtrar os itens.</p>
+
+        <!-- Botões -->
+        <div id="filters" class="filters" role="toolbar" aria-label="Filtros">
+            <button class="pill" data-filter="tudo" aria-pressed="true">Tudo</button>
+            <button class="pill" data-filter="natureza" aria-pressed="false">Natureza</button>
+            <button class="pill" data-filter="pessoas" aria-pressed="false">Pessoas</button>
+            <button class="pill" data-filter="cidades" aria-pressed="false">Cidades</button>
+            <button class="pill" data-filter="animais" aria-pressed="false">Animais</button>
+        </div>
+
+        <!-- Galeria -->
+        <main id="grid" class="grid" aria-live="polite">
+            <!-- Natureza -->
+            <article class="card" data-category="natureza">
+                <img src="https://www.climatepolicyinitiative.org/wp-content/uploads/2021/09/Depositphotos_42469131_xl-2015-scaled.jpg"
+                    alt="Floresta amazonica" />
+                <div class="meta"><strong>Floresta amazonica</strong><br><span class="muted">Natureza</span></div>
+            </article>
+            
+            <article class="card" data-category="natureza">
+                <img src="https://plus.unsplash.com/premium_photo-1672116453151-fc5f27b555db?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Lago nas motanhas" />
+                <div class="meta"><strong>Lago nas motanhas  </strong><br><span class="muted">Natureza</span></div>
+            </article>
+
+            <!-- insira o arquicle Pessoas -->
+            <article class="card" data-category="pessoas">
+                <img src="https://static.vecteezy.com/system/resources/previews/003/541/697/non_2x/pensive-girl-standing-in-the-studio-on-a-background-of-blue-wall-free-photo.JPG"
+                    alt="Mulher confusa" />
+                <div class="meta"><strong>Mulher Confusa</strong><br><span class="muted">Pessoa</span></div>
+            </article>
+
+            <!-- Insira o article de Cidades -->
+            <article class="card" data-category="cidades"> 
+                <img src="https://dicasdacalifornia.com.br/wp-content/uploads/sites/18/2015/10/ponte-golden-gate-em-san-francisco-1.jpg"
+                    alt="Ponte moderna" />
+                <div class="meta"><strong>Ponte moderna</strong><br><span class="muted">Cidade</span></div>
+            </article>
+
+            <article class="card" data-category="cidades"> 
+                <img src="https://media.istockphoto.com/id/1164705845/photo/tokyo-japan-skyline.jpg?s=612x612&w=0&k=20&c=kctr0-vR2EQg2Dri5CgxJL3GxOTvBkYMpkOpp9nyHoM="
+                    alt="Tokyo a noite" />
+                <div class="meta"><strong>Tokyo a noite</strong><br><span class="muted">Cidade</span></div>
+            </article>
+
+            <article class="card" data-category="pessoas"> 
+                <img src="https://blog.sunsetskateshop.com.br/wp-content/uploads/2023/08/Melhores-roupas-para-andar-de-skate.jpeg"
+                    alt="Skatista maneiro" />
+                <div class="meta"><strong>Skatista maneiro</strong><br><span class="muted">Pessoa</span></div>
+            </article>
+
+            <article class="card" data-category="animais"> 
+                <img src="https://img.freepik.com/fotos-premium/o-grande-tubarao-martelo-e-uma-especie-da-familia-dos-tubaroes-martelo-sphyrnidae_14117-115343.jpg"
+                    alt="Tubarão martelo" />
+                <div class="meta"><strong>Tubarão martelo</strong><br><span class="muted">Animal</span></div>
+            </article>
+
+            <article class="card" data-category="animais"> 
+                <img src="https://mega.ibxk.com.br/2022/11/14/14133140341263.jpg?ims=fit-in/800x500"
+                    alt="Pantera negra" />
+                <div class="meta"><strong>Pantera negra</strong><br><span class="muted">Animal</span></div>
+            </article>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
