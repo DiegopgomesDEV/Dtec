@@ -4,6 +4,7 @@ body{
     margin: 40px auto;
     padding: 20px;
     text-align: center;
+    background-color: rgba(213, 204, 204, 0.676);
 }
 
 input[type="text"]{
@@ -22,7 +23,7 @@ button{
 }
 
 button:hover{
-    background-color: rgba(0, 0, 0, 0.632);
+    background-color: rgba(6, 6, 6, 0.632);
 }
 
 #container{
@@ -30,6 +31,9 @@ button:hover{
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 8px;
-    background-color: #dfdfdf;
+    background-color: #77707033;
 }
 
+.box{
+    background-color: rgba(255, 251, 251, 0.811)
+}
