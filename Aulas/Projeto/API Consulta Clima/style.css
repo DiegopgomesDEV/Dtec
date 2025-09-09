@@ -1,0 +1,14 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+}
+
+.container{
+    width: 600px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    background-color: blue;
+    flex-direction: column;
+}
