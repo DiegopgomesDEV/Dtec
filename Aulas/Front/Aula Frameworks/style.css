@@ -1,0 +1,19 @@
+.col{
+    background-color: blueviolet;
+    border: black 1px solid;
+    padding: 10px;
+}
+
+.col-4{
+    background-color: rgb(211, 226, 43);
+    border: black 1px solid;
+    padding: 10px;
+}
+
+.table-danger{
+    background-color: red;
+}
+
+.btn, btn-primary{
+    background-color: rgb(209, 49, 49);
+}

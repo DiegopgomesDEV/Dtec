@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula Bootstrap</title>
+  <!-- Importando Bootstrap via CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="media">
+  <img class="align-self-end mr-3" src="logoGOLF.png" width="64px" alt="Imagem de exemplo genérica">
+  <div class="media-body">
+    <h5 class="mt-0">Golfinhos: Inteligência e Graça dos Maree</h5>
+
+Os golfinhos são mamíferos aquáticos pertencentes à ordem Cetacea e à família Delphinidae, a mesma das baleias e orcas. Com mais de 90 espécies conhecidas, esses animais habitam todos os oceanos e até alguns rios, como o Amazonas, onde vive o famoso boto-cor-de-rosa.<br>
+
+Dotados de uma inteligência impressionante, os golfinhos são capazes de aprender comandos, resolver problemas e até demonstrar comportamentos sociais complexos. Vivem em grupos chamados de cardumes e se comunicam por meio de sons e gestos. Um dos seus maiores talentos é a ecolocalização: eles emitem sons que reverberam nos objetos ao redor e retornam como eco, permitindo que "vejam" com o som.<br>
+
+Fisicamente, os golfinhos têm corpos hidrodinâmicos que lhes permitem nadar a até 40 km/h e saltar até 5 metros fora da água. Respiram por pulmões e possuem um orifício respiratório no topo da cabeça, chamado de respiradouro. Curiosamente, quando dormem, apenas um hemisfério do cérebro repousa, enquanto o outro permanece ativo para garantir a respiração.<br>
+
+A alimentação dos golfinhos é carnívora, baseada principalmente em peixes e lulas. Eles não mastigam suas presas, engolindo-as inteiras. Algumas espécies, como a orca (que, apesar do nome popular, é um tipo de golfinho), têm dietas ainda mais variadas, incluindo aves e até outros mamíferos marinhos.
+Além de sua beleza e inteligência, os golfinhos são símbolo de alegria e liberdade. Sua presença nos mares é um lembrete da diversidade e da complexidade da vida marinha — e da importância de protegê-la.<br>
+    </div>
+</div>
+
+<img src="https://geekdama.com.br/wp-content/uploads/2013/07/tubaroes-e-golfinhos-cacando-cardumes-de-cavala-02.jpg.webp" class="rounded float-left" width="300px" alt="golfinhoscaçando">
+<img src="https://static.biologianet.com/conteudo/images/a-ecolocalizacao-permite-aos-golfinhos-identificarem-localizacao-dos-outros-membros-grupo-5a16dd2bf3f9b.jpg" class="rounded float-right" width="300px" alt="doisgolfinhos"> 
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Primeiro</th>
+      <th scope="col">Último</th>
+      <th scope="col">Nickname</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td class="table-danger">Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+<div class="alert alert-primary" role="alert">
+  Um simples alerta primary. Olha só! <button type="button" class="btn btn-outline-primary">Primary</button>
+</div>
+<div class="alert alert-secondary" role="alert">
+  Um simples alerta secondary. Olha só! <button type="button" class="btn btn-outline-secondary">Secondary</button>
+</div>
+<div class="alert alert-success" role="alert">
+  Um simples alerta success. Olha só! <button type="button" class="btn btn-outline-success">Success</button>
+</div>
+<div class="alert alert-danger" role="alert">
+  Um simples alerta danger. Olha só! <button type="button" class="btn btn-outline-danger">Danger</button>
+</div>
+<div class="alert alert-warning" role="alert">
+  Um simples alerta warning. Olha só! <button type="button" class="btn btn-outline-warning">Warning</button>
+</div>
+<div class="alert alert-info" role="alert">
+  Um simples alerta info. Olha só! <button type="button" class="btn btn-outline-info">Info</button>
+</div>
+<div class="alert alert-light" role="alert">
+  Um simples alerta light. Olha só! <button type="button" class="btn btn-outline-light">Light</button>
+</div>
+<div class="alert alert-dark" role="alert">
+  Um simples alerta dark. Olha só! <button type="button" class="btn btn-outline-dark">Dark</button>
+</div>
+
+<div class="btn-group" role="group" aria-label="Grupo de botões com dropdown aninhado">
+  <button type="button" class="btn btn-secondary">1</button>
+  <button type="button" class="btn btn-secondary">2</button>
+
+  <div class="btn-group" role="group">
+    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Dropdown
+    </button>
+    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+      <a class="dropdown-item" href="#">Link dropdown</a>
+      <a class="dropdown-item" href="#">Link dropdown</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="https://preview.redd.it/animais-vers%C3%A3o-bombados-manda-salve-andre-v0-66hdd0jj6b4c1.jpg?width=640&crop=smart&auto=webp&s=222baf2f96464bfa557907e51d8db9c8085add8c" width="100px180"  alt="Imagem de capa do card">
+  <div class="card-body">
+    <h5 class="card-title">Golfinho Carlão</h5>
+    <p class="card-text">Ele e golfinho muito simpatico que gosta de mulheres casadas.</p>
+    <a href="#" class="btn btn-primary">COMPRAR</a>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
+
