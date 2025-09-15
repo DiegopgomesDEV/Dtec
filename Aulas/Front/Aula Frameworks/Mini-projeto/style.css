@@ -1,0 +1,22 @@
+
+    .nav{
+    background-color: rgba(0, 0, 0, 0.737);
+    }
+
+    .logoloja{
+        margin-right: 800px;
+        margin-left: 50px;
+    }
+
+    .nav-link{
+        color: rgb(204, 196, 196);
+    }
+
+    .nav-link:hover{
+        color: rgb(253, 253, 253);
+    }
+
+    .nav-item{
+        display: flex;
+        align-items: center;
+    }
