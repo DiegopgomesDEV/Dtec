@@ -1,6 +1,9 @@
 
     .nav{
-    background-color: rgba(0, 0, 0, 0.737);
+        font-family: "Bebas Neue", sans-serif;
+        background-color: rgba(0, 0, 0, 0.737);
+        font-size: 23px;
+        font-weight: bold;
     }
 
     .logoloja{
@@ -9,7 +12,7 @@
     }
 
     .nav-link{
-        color: rgb(204, 196, 196);
+        color: rgb(199, 196, 204);
     }
 
     .nav-link:hover{
@@ -19,4 +22,18 @@
     .nav-item{
         display: flex;
         align-items: center;
+    }
+
+
+    .carousel-inner{
+        background-size: 200px;
+        
+        background-position:bottom;
+        width: 100%;
+        height: 400px;
+    }
+
+    .box1{
+        display: flex;
+        flex-direction: row;
     }
