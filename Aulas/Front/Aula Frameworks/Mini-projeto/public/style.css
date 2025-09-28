@@ -1,14 +1,16 @@
+    body{
+        background-color: rgba(0, 0, 0, 0.737);
+    }
 
     .nav{
         font-family: "Bebas Neue", sans-serif;
-        background-color: rgba(0, 0, 0, 0.737);
-        font-size: 23px;
+        font-size: 24px;
         font-weight: bold;
     }
 
     .logoloja{
-        margin-right: 800px;
-        margin-left: 50px;
+        margin-right: 780px;
+        margin-left: 20px;
     }
 
     .nav-link{
@@ -16,7 +18,7 @@
     }
 
     .nav-link:hover{
-        color: rgb(242, 208, 140);
+        color: rgb(247, 192, 84);
     }
 
     .nav-item{
@@ -36,5 +38,28 @@
         display: flex;
         flex-direction: row;
         gap: 15px;
+    }
 
+    .card{
+        margin-top: 10px;
+        border: 2px solid rgb(123, 1, 244);
+        border-radius: 10px;
+        color: rgb(249, 97, 2);
+    }
+    
+
+    .imgcard{
+        width: auto;
+        height: 200px;
+        border-radius: 10px 10px 0px 0px;
+    }
+
+    .btn-primary{
+        background-color: rgb(123, 1, 244);
+        border: none;
+    }
+
+    .btn-primary:hover{
+        background-color: rgb(249, 97, 2);
+        color: black;
     }
