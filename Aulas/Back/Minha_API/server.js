@@ -1,8 +1,20 @@
+//Carregar variaveis de ambiente
+require('dotenv').config()
+
 //Importando o express
 const express = require('express')
-
-//Importação cors
 const cors = require('cors')
+const mongoose = require('mongoose')
+
+const PORT = process.env.PORT || 3002;
+const mongoURI = process.env.MONGO_URI;
+
+//conexão mongodb
+mongoose.connect(mongoURI)
+  .then(() => console.log("Conectado ao MongoDB Atlas"))
+  .catch(error => {console.error("Falha na Conexão ao MongoDB", error.message);
+  process.exit(1);
+})
 
 //Criando minha aplicação
 const app = express()
@@ -12,36 +24,47 @@ app.use(express.json())
 //permitir trabalhar com cors
 app.use(cors())
 
-//Porta onde a API vai rodar
-const PORT = 3001;
+//estrurura do documento schema
 
-let usuarios = [
-  { id: 1, nome: "Ana", idade: 25 },
-  { id: 2, nome: "Carlos", idade: 30 },
-  { id: 3, nome: "Maria", idade: 22 },
-  { id: 4, nome: "José Carlos", idade: 35},
-  { id: 5, nome: "Josefa", idade: 25}
-]
+const usuarioSchema = new mongoose.Schema(
+  {
+    nome: {type: String, require:true},
+    idade: {type: Number, require:true}
+  },{timestamps:true}
+);
+
+//modelo e collection
+const Usuario = mongoose.model('Usuario', usuarioSchema)
 
 app.get('/',(req,res) => {
   res.send("PÁGINA INICIAL")
 })
 
 
-app.get('/usuarios',(req,res) => {
-    res.json(usuarios);
+app.get('/usuarios', async (req,res) => {
+    try{
+      const usuarios = await Usuario.find({});
+      res.json(usuarios);
+    } catch(error) {
+      res.status(500).json({mensagem:"Error ao buscar Usuários", erro: error.message})
+    }
 })
 
-app.get('/usuarios/:id', (req, res) => {
-  const id = req.params.id
-  const usuario = usuarios.find(u => u.id == id)
+app.get('/usuarios/:id', async (req, res) => {
+  try{
+    const id = req.params.id;
+    const usuario = await Usuario.findById(id);
 
-  if(usuario){
-    res.json(usuario)
-  }else {
-    res.status(404).json({mensagem: "Usuário Não Encontrado"})
+    if(usuario){
+      res.json(usuario)
+    }else{
+      res.status(404).json({mensagem:"Usuário Não encontrado"})
+    }
+  } catch (error) {
+      res.status(400).json({mensagem:"Erro de Servidor", erro: error.message})
   }
 })
+
 
 app.get('/usuarios/nome/:nome', (req,res) => {
     const buscaNome = req.params.nome.toLowerCase()

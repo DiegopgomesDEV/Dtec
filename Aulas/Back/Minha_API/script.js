@@ -1,6 +1,6 @@
 
 //Criando uma constante com o endereço da API 
-const API_URL = "http://localhost:3001/usuarios";
+const API_URL = "http://localhost:3005/usuarios";
 
 //Seleção de Elementos do HTML INICIAL
 const userCardsContainer = document.getElementById('user-cards-container');
