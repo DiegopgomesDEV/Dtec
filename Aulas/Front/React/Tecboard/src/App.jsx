@@ -1,44 +1,6 @@
 import './App.css'
+import  {FormularioDeEvento}  from './assets/Componentes/FormularioDeEvento'
 // No react, componentes são FUNÇÕES
-
-function CampoDeEntrada(props){
-  return <input {...props}/>
-}
-
-function Label({children, htmlFor}){
-  return (
-    <label htmlFor={htmlFor}>
-    {children}
-    </label>
-  )
-}
-
-function CampoDeFormulario({children}) {
-  return (
-    <fieldset>
-      {children}
-    </fieldset>
-  )
-}
-
-function TituloFormulario (props) {
-  return (
-    <h2>{props.children}</h2>
-  )
-}
-
-function FormularioDeEvento(){
-  return (
-    <form className='form-evento'>
-      <TituloFormulario>Preencha para criar um evento:</TituloFormulario>
-      <CampoDeFormulario>
-        <Label htmlFor="nome"> Qual é o nome do evento:</Label>
-        <CampoDeEntrada type="text" id='nome' placeholder='Sumer dev hits' />
-      </CampoDeFormulario>
-    </form>
-
-  )
-}
 
 function App() {
   
