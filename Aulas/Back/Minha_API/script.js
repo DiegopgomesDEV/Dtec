@@ -88,7 +88,7 @@ function renderUsers(users) {
 
         userCard.innerHTML = `
             <div class="user-info">
-                <p><strong>ID:</strong>${user.id}</p>
+                <p><strong>ID:</strong>${user._id.slice(0,5)}</p>
                 <p><strong>Nome:</strong>${user.nome}</p>
                 <p><strong>Idade:</strong>${user.idade}</p>
             </div>
@@ -102,15 +102,15 @@ function renderUsers(users) {
         const deleteBtn = userCard.querySelector('.btn-delete');
 
         editBtn.addEventListener('click', () => {
-            editIdInput.value = user.id;
+            editIdInput.value = user._id.slice(0,5);
             editNameInput.value = user.nome;
             editAgeInput.value = user.idade;
             editModal.style.display = 'flex';
         })
 
         deleteBtn.addEventListener('click', () => {
-            if(confirm(`Tem certeza que deseja excluir o usuário ${user.id}`)){
-                deleteUser(user.id)
+            if(confirm(`Tem certeza que deseja excluir o usuário ${user._id.slice(0,5)}`)){
+                deleteUser(user._id.slice(0,5))
             }
         })
         userCardsContainer.appendChild(userCard);
