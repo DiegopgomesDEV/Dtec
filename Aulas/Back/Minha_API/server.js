@@ -112,14 +112,16 @@ app.get('/usuarios/idade/:idade', async (req,res) => {
 app.delete('/usuarios/:id', async (req, res) => {
   try{
     const id = req.params.id;
-    const usuariodeletado = await Usuario.findOneAndDelete(id)
+    // use the correct mongoose helper to delete by id
+    const usuariodeletado = await Usuario.findByIdAndDelete(id);
 
-  if(!usuariodeletado){
-    return res.status(404).json({mansagem: "Usuário Não Encontrado"})
-  }
-  res.json({mensagem:"Usuário deletado", usuario: usuariodeletado});
+    if(!usuariodeletado){
+      return res.status(404).json({mensagem: "Usuário Não Encontrado"});
+    }
+
+    res.json({mensagem:"Usuário deletado", usuario: usuariodeletado});
   }catch(error){
-    res.status(400).json({mensagem:"Erro ao deletar", erro: error.massage})
+    res.status(400).json({mensagem:"Erro ao deletar", erro: error.message});
   }
 })
 
@@ -131,7 +133,7 @@ app.post('/usuarios', async (req, res) => {
     });
     res.status(201).json(novoUsuario)
   }catch(error){
-    res.status(400).json({mensagem: "Dados Invalidos ou Erro ao salvar", erro: error.mensagem})
+    res.status(400).json({mensagem: "Dados Invalidos ou Erro ao salvar", erro: error.message})
   }
 })
 
@@ -139,8 +141,8 @@ app.put('/usuarios/:id', async(req,res) => {
   try{
     const id = req.params.id
     const {nome, idade} = req.body
-
-    const Usuarioatualizado = await Usuario.findOneAndUpdate(
+    // use findByIdAndUpdate when you have the id string
+    const Usuarioatualizado = await Usuario.findByIdAndUpdate(
       id,
       {nome, idade},
       {new: true, runValidators: true}
@@ -149,8 +151,8 @@ app.put('/usuarios/:id', async(req,res) => {
       return res.status(404).json({mensagem: "Usuário Não Encrotrado"})
     }
     res.json(Usuarioatualizado)
-  }catch{
-    res.status(400).json({mensagem:"Erro ao atualizar", erro:error.message})
+  }catch(error){
+    res.status(400).json({mensagem:"Erro ao atualizar", erro: error.message})
   }
 })
 

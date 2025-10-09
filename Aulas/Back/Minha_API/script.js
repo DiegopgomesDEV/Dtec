@@ -88,9 +88,9 @@ function renderUsers(users) {
 
         userCard.innerHTML = `
             <div class="user-info">
-                <p><strong>ID:</strong>${user._id.slice(0,5)}</p>
-                <p><strong>Nome:</strong>${user.nome}</p>
-                <p><strong>Idade:</strong>${user.idade}</p>
+                <p><strong>ID: </strong>${user._id.slice(0,7)}</p>
+                <p><strong>Nome: </strong>${user.nome}</p>
+                <p><strong>Idade: </strong>${user.idade}</p>
             </div>
             <div class="card-buttons">
                 <button class="btn-edit">Editar</button>
@@ -101,16 +101,23 @@ function renderUsers(users) {
         const editBtn = userCard.querySelector('.btn-edit');
         const deleteBtn = userCard.querySelector('.btn-delete');
 
+        // store the full id on the buttons so we don't send a truncated id to the API
+        editBtn.dataset.userid = user._id;
+        deleteBtn.dataset.userid = user._id;
+
         editBtn.addEventListener('click', () => {
-            editIdInput.value = user._id.slice(0,5);
+            // use the full id when editing
+            editIdInput.value = editBtn.dataset.userid;
             editNameInput.value = user.nome;
             editAgeInput.value = user.idade;
             editModal.style.display = 'flex';
         })
 
         deleteBtn.addEventListener('click', () => {
-            if(confirm(`Tem certeza que deseja excluir o usuário ${user._id.slice(0,5)}`)){
-                deleteUser(user._id.slice(0,5))
+            const shortId = deleteBtn.dataset.userid.slice(0,7);
+            if(confirm(`Tem certeza que deseja excluir o usuário ${shortId}`)){
+                // send the full id to the API
+                deleteUser(deleteBtn.dataset.userid)
             }
         })
         userCardsContainer.appendChild(userCard);
