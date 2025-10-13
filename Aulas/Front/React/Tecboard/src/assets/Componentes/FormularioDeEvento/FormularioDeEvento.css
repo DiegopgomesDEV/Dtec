@@ -7,7 +7,7 @@
     margin: 64px auto;
 }
 
-.campo{
+.campos{
     display: flex;
     flex-direction: column;
     gap: 16px;

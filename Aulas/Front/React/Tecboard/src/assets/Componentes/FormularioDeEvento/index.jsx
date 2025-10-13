@@ -7,6 +7,7 @@ import { Botao } from '../Botão';
 import { ListaSuspensa } from '../ListaSuspensa';
 
 
+
 export function FormularioDeEvento() {
     return (
         <form className='form-evento'>
@@ -26,7 +27,7 @@ export function FormularioDeEvento() {
                 </CampoDeFormulario>
 
                 <CampoDeFormulario>
-                    <Label htmlFor='tipotEvento'>Qual é o tipo de evento</Label>
+                    <Label htmlFor='tipoEvento'>Qual é o tipo de evento</Label>
 
                     <ListaSuspensa/>
                 </CampoDeFormulario>
