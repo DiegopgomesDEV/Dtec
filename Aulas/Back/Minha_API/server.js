@@ -67,14 +67,16 @@ app.post('/api/register-adim', async (req, res) => {
 })
 
 app.post('api/login-adim', async (req,res) => {
-  const {email,password} = req,body
+  const {email,password} = req.body
   try{
     const user = await User.findOne({email}).select('+password')
 
     if(user && (await user.MatchPassword(password))) {
-      email: user.email,
-      token: generateToken(user._id),
-      mensagem:"Login Realizado com sucesso"
+      res.json({
+        email: user.email,
+        token: generateToken(user._id),
+        mensagem: "Login Realizado com sucesso"
+      });
     } else {
       res.status(401).json({mensagem:"Credencias inválidas"})
     }
