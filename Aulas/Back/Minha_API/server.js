@@ -5,9 +5,17 @@ require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
+const jwt = require('jsonwebtoken') //Para Tokens
+const bcrypt = require('bcryptjs') //Para Criptogarfia
+
+//Imporatando as Collections
+const User = require('.models/User')
+const Pessoa = require('.models/Pessoa')
 
 const PORT = process.env.PORT || 3002;
 const mongoURI = process.env.MONGO_URI;
+const JWT_SECRET = process.env.JWT_SECRET;
+
 
 //conexão mongodb
 mongoose.connect(mongoURI)
@@ -15,6 +23,25 @@ mongoose.connect(mongoURI)
   .catch(error => {console.error("Falha na Conexão ao MongoDB", error.message);
   process.exit(1);
 })
+
+//Função geradora de tokens de login
+const generateToken = (id) => {
+  return jwt.sign({id}, JWT_SECRET, {expiresIn: '1d'})
+}
+
+const protect = (req, res, next) => {
+  let token;
+
+  if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+    try{
+      token = req.headers.authorization.split(' ')[1]
+      jwt.verify(token, JWT_SECRET);
+      next()
+    } catch(error) {
+      return res.status(401).json({mensagem: "Não autorizado, token inválido"})
+    }
+  }
+}
 
 //Criando minha aplicação
 const app = express()
@@ -24,17 +51,38 @@ app.use(express.json())
 //permitir trabalhar com cors
 app.use(cors())
 
-//estrurura do documento schema
+// Rotas ADMIN
+app.post('/api/register-adim', async (req, res) => {
+  const {email, password} = req.body
+  try{
+    const userExists = await User.findOne({email})
+    if (userExists){
+      return res.status(400).json({mensagem: "Nome de usuário ja existe"})
+    }
+    const user = await User.create({email, password})
+    res.status(201).json({mensagem: "Usuário criado com sucesso"})
+  } catch (error) {
+    res.status(500).json({mensagem:"Erro do registro admin", erro: error.message})
+  }
+})
 
-const usuarioSchema = new mongoose.Schema(
-  {
-    nome: {type: String, require:true},
-    idade: {type: Number, require:true}
-  },{timestamps:true}
-);
+app.post('api/login-adim', async (req,res) => {
+  const {email,password} = req,body
+  try{
+    const user = await User.findOne({email}).select('+password')
 
-//modelo e collection
-const Usuario = mongoose.model('Usuario', usuarioSchema)
+    if(user && (await user.MatchPassword(password))) {
+      email: user.email,
+      token: generateToken(user._id),
+      mensagem:"Login Realizado com sucesso"
+    } else {
+      res.status(401).json({mensagem:"Credencias inválidas"})
+    }
+  }catch(error){
+    res.status(500).json({mensagem: "Erro no login", erro: error.message})
+  }
+})
+
 
 app.get('/',(req,res) => {
   res.send("PÁGINA INICIAL")
