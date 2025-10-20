@@ -4,6 +4,7 @@ import { FormularioDeEvento } from './assets/Componentes/FormularioDeEvento'
 import { Tema } from './assets/Componentes/Tema'
 import { Banner} from './assets/Componentes/Banner'
 import { CardEvento } from './assets/Componentes/CardEvento';
+import { useState } from 'react';
 
 //No react, componentes são FUNÇÕES
 
@@ -39,16 +40,21 @@ function App() {
     }
   ]
   
-  const eventos = [
+  const [eventos, setEventos] =  useState([
     {
-      capas: 'https:',
+      capa: 'https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png',
       tema: temas[0],
       data: new Date(),
-      titulo:'Mulheres no Font'
+      titulo:'Mulheres no Front'
     }
-  ]
-  
-  
+  ])
+
+  function adiconarEvento(evento){
+  setEventos([...eventos, evento])
+  /*  eventos.push(evento)
+    console.log('eventos =>', eventos)*/
+  }
+
   return (
     <main>
       <header>
@@ -57,13 +63,18 @@ function App() {
       
       <Banner/>
 
-      <FormularioDeEvento />
+      <FormularioDeEvento temas={temas} aoSubmeter={adiconarEvento} />
 
       {temas.map(function(item){
         return (
           <section key={item.id}>
             <Tema tema={item}/>
-            <CardEvento evento= {eventos[0]}/>
+            {eventos.map(function(item, index){
+              return(
+                <CardEvento evento= {item} key={index}/>
+              )
+            }
+            )}
           </section>
         )
       })}
@@ -93,5 +104,3 @@ function App() {
 
 
 export default App
-
-
