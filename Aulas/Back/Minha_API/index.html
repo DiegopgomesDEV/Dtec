@@ -10,14 +10,15 @@
 
 <body>
     <div class="container">
-        <h1>Gerenciamento de Usuários</h1>
+        <h1>Gerenciamento de Pessoas</h1>
         <p>Clique em "Listar Pessoas" para carregar os dados da API.</p>
 
         <div class="header-buttons">
             <button id="btnListUsers">Listar Pessoas</button>
-            <button id="btnloginModal" class="btn-action">Login</button>
-            <button id="brnRegisterModal" class="btn-action">Criar Usuários</button>
-            <p id="adimAuthsStatus" class="auth-status"></p>
+            <button id="btnLoginModal" class="btn-action">Login</button>
+            <button id="btnRegisterModal" class="btn-action">Criar Usuários</button>
+
+            <p id="adminAuthsStatus" class="auth-status"></p>
         </div>
 
         <div id="user-cards-container" class="cards-grid">
@@ -51,11 +52,11 @@
     <div  id="loginModal" class="modal">
         <div class="modal-contente">
             <h2>Login Adiminstrador</h2>
-            <form id="adimLoginForm">
-                <label for="admiUsername">Usuário:</label>
-                <input type="text" id="admiUsername" required>
-                <label for="adimPassword">Senha:</label>
-                <input type="password" id="adimPassword" required>
+            <form id="adminLoginForm">
+                <label for="adminUsername">Usuário:</label>
+                <input type="text" id="adminUsername" required>
+                <label for="adminPassword">Senha:</label>
+                <input type="password" id="adminPassword" required>
 
                 <div class="modal-buttons">
                     <button class="btn-save" type="submit">Entrar</button>
@@ -70,7 +71,7 @@
         <div class="modal-contet">
             <h2>Criação Conta</h2>
             <form id="adminRegisterForm">
-                <p id="adimRegisterStatusForm" class="auth-status"></p>
+                <p id="adminRegisterStatusForm" class="auth-status"></p>
                 <label for="regUsername"> Nome de Usuario:</label>
                 <input type="text" id="regUsername" required>
                 <label for="regPassword">Senha: </label>

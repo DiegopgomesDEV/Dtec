@@ -11,6 +11,7 @@ const bcrypt = require('bcryptjs') //Para Criptogarfia
 //Imporatando as Collections
 const User = require('.models/User')
 const Pessoa = require('.models/Pessoa')
+const pessoa = require('./models/pessoa')
 
 const PORT = process.env.PORT || 3002;
 const mongoURI = process.env.MONGO_URI;
@@ -52,12 +53,12 @@ app.use(express.json())
 app.use(cors())
 
 // Rotas ADMIN
-app.post('/api/register-adim', async (req, res) => {
+app.post('/api/register-admin', async (req, res) => {
   const {email, password} = req.body
   try{
     const userExists = await User.findOne({email})
     if (userExists){
-      return res.status(400).json({mensagem: "Nome de usuário ja existe"})
+      return res.status(400).json({mensagem: "Nome de usuário já existente"})
     }
     const user = await User.create({email, password})
     res.status(201).json({mensagem: "Usuário criado com sucesso"})
@@ -66,7 +67,8 @@ app.post('/api/register-adim', async (req, res) => {
   }
 })
 
-app.post('api/login-adim', async (req,res) => {
+//LOGIN DE USUARIO
+app.post('/api/login-admin', async (req,res) => {
   const {email,password} = req.body
   try{
     const user = await User.findOne({email}).select('+password')
@@ -91,19 +93,19 @@ app.get('/',(req,res) => {
 })
 
 
-app.get('/usuarios', async (req,res) => {
+app.get('/pessoas', async (req,res) => {
     try{
-      const usuarios = await Usuario.find({});
+      const usuarios = await Pessoa.find({});
       res.json(usuarios);
     } catch(error) {
       res.status(500).json({mensagem:"Error ao buscar Usuários", erro: error.message})
     }
 })
 
-app.get('/usuarios/:id', async (req, res) => {
+app.get('/pessoas/:id', async (req, res) => {
   try{
     const id = req.params.id;
-    const usuario = await Usuario.findById(id);
+    const usuario = await Pessoa.findById(id);
 
     if(usuario){
       res.json(usuario)
@@ -116,10 +118,10 @@ app.get('/usuarios/:id', async (req, res) => {
 })
 
 
-app.get('/usuarios/nome/:nome', async (req,res) => {
+app.get('/pessoas/nome/:nome', async (req,res) => {
   try{
     const buscaNome =req.params.nome;
-    const resultados = await Usuario.find({
+    const resultados = await Pessoa.find({
       nome: {$regex: buscaNome, $options:'i'}
     });
 
@@ -137,10 +139,10 @@ app.get('/usuarios/nome/:nome', async (req,res) => {
   }
 })
 
-app.get('/usuarios/idade/:idade', async (req,res) => {
+app.get('/pessoas/idade/:idade', async (req,res) => {
   try{
   const buscaIdade = req.params.idade;
-  const resultados = await Usuario.find({
+  const resultados = await Pessoa.find({
     idade: buscaIdade
   })
   
@@ -148,7 +150,7 @@ app.get('/usuarios/idade/:idade', async (req,res) => {
       res.json(resultados);
     }
     else{
-      res.status(404).json({messagem: "Usuário Não Encotrardo"})
+      res.status(404).json({messagem: "Pessoa Não Encotrardo"})
     };
   }
   
@@ -159,25 +161,25 @@ app.get('/usuarios/idade/:idade', async (req,res) => {
 });
 
 
-app.delete('/usuarios/:id', async (req, res) => {
+app.delete('/pessoas/:id', protect, async (req, res) => {
   try{
     const id = req.params.id;
     // use the correct mongoose helper to delete by id
-    const usuariodeletado = await Usuario.findByIdAndDelete(id);
+    const pessoaDeletado = await Pessoa.findByIdAndDelete(id);
 
-    if(!usuariodeletado){
-      return res.status(404).json({mensagem: "Usuário Não Encontrado"});
+    if(!pessoaDeletado){
+      return res.status(404).json({mensagem: "Pessoa Não Encontrado"});
     }
 
-    res.json({mensagem:"Usuário deletado", usuario: usuariodeletado});
+    res.json({mensagem:"Pessoa deletada", usuario: pessoaDeletado});
   }catch(error){
     res.status(400).json({mensagem:"Erro ao deletar", erro: error.message});
   }
 })
 
-app.post('/usuarios', async (req, res) => {
+app.post('/pessoas', async (req, res) => {
   try{
-    const novoUsuario = await Usuario.create({
+    const novoUsuario = await Pessoa.create({
       nome: req.body.nome,
       idade: req.body.idade
     });
@@ -187,18 +189,18 @@ app.post('/usuarios', async (req, res) => {
   }
 })
 
-app.put('/usuarios/:id', async(req,res) => {
+app.put('/pessoas/:id', async(req,res) => {
   try{
     const id = req.params.id
     const {nome, idade} = req.body
     // use findByIdAndUpdate when you have the id string
-    const Usuarioatualizado = await Usuario.findByIdAndUpdate(
+    const Usuarioatualizado = await Pessoa.findByIdAndUpdate(
       id,
       {nome, idade},
       {new: true, runValidators: true}
     )
     if(!Usuarioatualizado){
-      return res.status(404).json({mensagem: "Usuário Não Encrotrado"})
+      return res.status(404).json({mensagem: "Pessoa Não Encrotrado"})
     }
     res.json(Usuarioatualizado)
   }catch(error){
