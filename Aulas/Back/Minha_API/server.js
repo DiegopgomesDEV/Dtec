@@ -9,9 +9,8 @@ const jwt = require('jsonwebtoken') //Para Tokens
 const bcrypt = require('bcryptjs') //Para Criptogarfia
 
 //Imporatando as Collections
-const User = require('.models/User')
-const Pessoa = require('.models/Pessoa')
-const pessoa = require('./models/pessoa')
+const User = require('./models/User')
+const Pessoa = require('./models/Pessoa')
 
 const PORT = process.env.PORT || 3002;
 const mongoURI = process.env.MONGO_URI;
@@ -54,7 +53,8 @@ app.use(cors())
 
 // Rotas ADMIN
 app.post('/api/register-admin', async (req, res) => {
-  const {email, password} = req.body
+  const email = req.body.email
+  const password = req.body.password
   try{
     const userExists = await User.findOne({email})
     if (userExists){
@@ -69,11 +69,12 @@ app.post('/api/register-admin', async (req, res) => {
 
 //LOGIN DE USUARIO
 app.post('/api/login-admin', async (req,res) => {
-  const {email,password} = req.body
+  const email = req.body.email
+  const password = req.body.password
   try{
     const user = await User.findOne({email}).select('+password')
 
-    if(user && (await user.MatchPassword(password))) {
+    if(user && (await user.matchPassword(password))) {
       res.json({
         email: user.email,
         token: generateToken(user._id),

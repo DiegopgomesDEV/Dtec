@@ -1,5 +1,3 @@
-const { response, json } = require("express");
-
 //Criando uma constante com o endereço da API 
 const API_URL = "http://localhost:3005/pessoas";
 
@@ -28,7 +26,7 @@ const registerModal = document.getElementById('registerModal')
 const btnRegisterModal = document.getElementById('btnRegisterModal')
 const btnCancelRegister = document.getElementById('btnCancelRegister')
 const adminRegisterForm = document.getElementById('adminRegisterForm')
-const adminRegisterStatusForm = document.getElementById('adminRegisterStatusForm')
+const adminRegisterStatus = document.getElementById('adminRegisterStatus')
 
 //Váriavel Global para o Token
 let authToken = '';
@@ -83,12 +81,12 @@ function editUser(userId, userData){
 
 //Funçao para criar conta - registar administardor
 function handleAdminRegister(email,password){
-    adminAuthsStatus.textContent = "Registrando...";
-    adminAuthsStatus.style = "blue";
+    adminRegisterStatus.textContent = "Registrando...";
+    adminRegisterStatus.style = "blue";
 
     fetch('http://localhost:3005/api/register-admin', {
         method: 'POST',
-        headers: { 'Content-Type': 'applicantin/json'},
+        headers: { 'Content-Type':'application/json'},
         body: JSON.stringify({email,password})
     })
     .then(response => response.json())
@@ -113,10 +111,10 @@ function handleAdminRegister(email,password){
 }
 
 //Função para login
-function handleAdminlogin(email,password){
+function handleAdminlogin(email,password) {
     fetch('http://localhost:3005/api/login-admin', {
         method: 'POST',
-        headers: {'Cotent-Type' : 'application/json'},
+        headers: {'Content-Type' : 'application/json'},
         body: JSON.stringify({email, password})
     })
     .then(response => response.json())
@@ -211,7 +209,6 @@ function renderUsers(users) {
             }
         })
         userCardsContainer.appendChild(userCard);
-
     })
 
 }
@@ -239,12 +236,53 @@ editUserForm.addEventListener('submit', (e) => {
 })
 
 btnCancelEdit.addEventListener('click', () => {
-    editModal.style.display = 'none'
+    editModal.style.display = "none"
+})
+
+//
+btnLoginModal.addEventListener('click', () =>{
+    loginModal.style.display = "flex"
+    document.getElementById('adminUsername').value = ""
+    document.getElementById('adminPassword').value = ""
+})
+
+btnCancelLogin.addEventListener('click', () =>{
+    loginModal.style.display = "none"
+})
+
+adminLoginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('adminUsername').value;
+    const password = document.getElementById('adminPassword').value;
+    handleAdminlogin(email, password);
+})
+
+//Listerner registro admin
+btnRegisterModal.addEventListener('click', () => {
+    registerModal.style.display = 'flex';
+    adminAuthsStatus.textContent= '';
+})
+
+btnCancelRegister.addEventListener('click', () => {
+    registerModal.style.display = 'none' ;
+})
+
+adminRegisterForm.addEventListener('submit', (e) =>{
+    e.preventDefault()
+    const email = document.getElementById('regUsername').value
+    const password = document.getElementById('regPassword').value
+    handleAdminRegister(email, password)
 })
 
 window.addEventListener('click', (e) => {
     if(e.target === editModal) {
         editModal.style.display = 'none'
+    }
+    if(e.target === loginModal) {
+        loginModal.style.display = 'none'
+    }
+    if(e.target === registerModal) {
+        registerModal.style.display = 'none'
     }
 })
 
